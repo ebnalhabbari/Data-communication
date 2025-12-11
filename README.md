@@ -19,8 +19,22 @@ Implemented methods include:
 - Hamming (12,8)  
 - Internet Checksum  
 
-## ▶️ How to Run
-
-1. Start **Receiver**:
-   ```bash
-   python receiver.py
+1. Sender**
+- User enters a message.
+- Selects an error detection method.
+- Application generates the corresponding control bits (CRC, Hamming, Parity, etc.).
+- Sends a packet in the format:
+_____________________________________
+2. Server**
+- Receives clean packet from Sender.
+- Randomly applies an **error injection method**:
+- Bit Flip  
+- Character Deletion  
+- Random Insertion  
+- Burst Error  
+- Forwards the CORRUPTED data (but keeps the original control bits) to the Receiver.
+_________________________________________________
+3. Receiver**
+- Receives the corrupted/clean packet.
+- Recomputes the control bits.
+- Compares:
